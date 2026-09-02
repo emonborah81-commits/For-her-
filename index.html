@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>A Little Something For You ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:
+        radial-gradient(circle at 10% 15%, rgba(255,190,210,.45), transparent 32%),
+        radial-gradient(circle at 90% 35%, rgba(220,205,245,.38), transparent 35%),
+        radial-gradient(circle at 50% 90%, rgba(255,215,220,.35), transparent 40%),
+        #fffaf8;
+    color:#624e56;
+    font-family:Georgia, "Times New Roman", serif;
+    overflow-x:hidden;
+}
+
+/* ==============================
+   FALLING HEARTS
+============================== */
+
+.hearts{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:20;
+}
+
+.heart{
+    position:absolute;
+    top:-60px;
+    opacity:0;
+    animation:fall linear infinite;
+}
+
+.heart:nth-child(1){left:5%;font-size:18px;animation-duration:7s;animation-delay:0s;}
+.heart:nth-child(2){left:16%;font-size:13px;animation-duration:9s;animation-delay:2s;}
+.heart:nth-child(3){left:28%;font-size:20px;animation-duration:8s;animation-delay:1s;}
+.heart:nth-child(4){left:41%;font-size:14px;animation-duration:10s;animation-delay:3s;}
+.heart:nth-child(5){left:54%;font-size:19px;animation-duration:7.5s;animation-delay:1.5s;}
+.heart:nth-child(6){left:67%;font-size:13px;animation-duration:9.5s;animation-delay:4s;}
+.heart:nth-child(7){left:79%;font-size:21px;animation-duration:8.5s;animation-delay:2.5s;}
+.heart:nth-child(8){left:91%;font-size:14px;animation-duration:10s;animation-delay:0.5s;}
+
+@keyframes fall{
+    0%{
+        transform:translateY(-70px) rotate(0deg);
+        opacity:0;
+    }
+    10%{
+        opacity:.8;
+    }
+    80%{
+        opacity:.5;
+    }
+    100%{
+        transform:translateY(110vh) rotate(180deg);
+        opacity:0;
+    }
+}
+
+/* ==============================
+   OPENING
+============================== */
+
+.hero{
+    min-height:100svh;
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:30px 22px;
+    overflow:hidden;
+}
+
+.glow{
+    position:absolute;
+    width:230px;
+    height:230px;
+    border-radius:50%;
+    filter:blur(65px);
+    opacity:.4;
+}
+
+.glow.one{
+    background:#ffd1df;
+    left:-100px;
+    top:12%;
+}
+
+.glow.two{
+    background:#e4d8f4;
+    right:-100px;
+    top:42%;
+}
+
+.glow.three{
+    background:#ffe0d6;
+    left:30%;
+    bottom:-100px;
+}
+
+.hero-content{
+    position:relative;
+    z-index:5;
+    animation:appear 1.8s ease forwards;
+}
+
+@keyframes appear{
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.line{
+    width:70px;
+    height:1px;
+    background:#d7a5b5;
+    margin:20px auto;
+}
+
+.hero h1{
+    color:#795965;
+    font-size:clamp(31px,8vw,55px);
+    font-weight:500;
+    line-height:1.3;
+}
+
+.hero p{
+    color:#a07987;
+    font-family:Arial,sans-serif;
+    font-size:11px;
+    letter-spacing:2px;
+    margin-top:18px;
+}
+
+.scroll{
+    position:absolute;
+    bottom:27px;
+    left:50%;
+    transform:translateX(-50%);
+    color:#aa7d8c;
+    font-family:Arial,sans-serif;
+    font-size:10px;
+    letter-spacing:2px;
+    z-index:6;
+    animation:breathe 2s infinite;
+}
+
+.scroll span{
+    display:block;
+    font-size:19px;
+    margin-top:7px;
+}
+
+@keyframes breathe{
+    0%,100%{opacity:.35;}
+    50%{opacity:1;}
+}
+
+/* ==============================
+   MAIN
+============================== */
+
+main{
+    width:100%;
+    padding:0 17px 80px;
+}
+
+.container{
+    width:100%;
+    max-width:760px;
+    margin:auto;
+}
+
+/* ==============================
+   INTRO
+============================== */
+
+.intro{
+    min-height:70vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:70px 10px;
+}
+
+.intro h2{
+    color:#76545f;
+    font-size:clamp(36px,9vw,58px);
+    font-weight:500;
+    line-height:1.25;
+}
+
+.intro p{
+    color:#95737d;
+    font-size:17px;
+    line-height:1.8;
+    margin-top:17px;
+}
+
+.divider{
+    color:#cf8ba0;
+    margin-top:25px;
+    letter-spacing:6px;
+}
+
+/* ==============================
+   LETTER
+============================== */
+
+.letter{
+    position:relative;
+    background:#fffdfb;
+    border:1px solid rgba(210,163,179,.45);
+    border-radius:26px;
+    padding:34px 21px;
+    box-shadow:
+        0 25px 70px rgba(130,85,105,.11),
+        0 5px 18px rgba(130,85,105,.05);
+}
+
+.letter:before{
+    content:"♡";
+    position:absolute;
+    top:16px;
+    right:18px;
+    color:#d6a0b1;
+    font-size:28px;
+    opacity:.5;
+}
+
+.letter:after{
+    content:"♡";
+    position:absolute;
+    left:10px;
+    top:17%;
+    color:#d6a0b1;
+    font-size:23px;
+    opacity:.25;
+}
+
+.letter-heading{
+    text-align:center;
+    color:#bd899a;
+    font-family:Arial,sans-serif;
+    font-size:10px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    margin-bottom:36px;
+}
+
+.message{
+    font-size:16px;
+    line-height:1.95;
+    color:#654f57;
+    margin-bottom:28px;
+}
+
+.highlight{
+    background:linear-gradient(
+        135deg,
+        rgba(255,226,235,.75),
+        rgba(246,237,250,.75)
+    );
+    border:1px solid rgba(214,163,181,.45);
+    border-radius:18px;
+    padding:21px 17px;
+    box-shadow:0 10px 30px rgba(150,100,125,.07);
+}
+
+/* ==============================
+   END
+============================== */
+
+.end{
+    text-align:center;
+    padding:100px 10px 40px;
+}
+
+.end h2{
+    color:#76545f;
+    font-size:clamp(27px,7vw,43px);
+    font-weight:500;
+    line-height:1.4;
+}
+
+.end p{
+    color:#96747e;
+    font-size:15px;
+    line-height:1.9;
+    max-width:570px;
+    margin:25px auto;
+}
+
+.final{
+    color:#b5687f;
+    font-size:25px;
+    line-height:1.5;
+    margin-top:35px;
+}
+
+/* ==============================
+   MUSIC
+============================== */
+
+.music{
+    position:fixed;
+    right:17px;
+    bottom:20px;
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    border:1px solid rgba(205,150,168,.45);
+    background:rgba(255,250,250,.95);
+    color:#a66b7d;
+    font-size:17px;
+    z-index:100;
+    box-shadow:0 8px 25px rgba(130,85,105,.15);
+}
+
+/* ==============================
+   DESKTOP
+============================== */
+
+@media(min-width:700px){
+
+    main{
+        padding-left:30px;
+        padding-right:30px;
+    }
+
+    .letter{
+        padding:52px 55px;
+    }
+
+    .message{
+        font-size:17px;
+        line-height:2;
+    }
+
+    .highlight{
+        padding:25px 27px;
+    }
+}
+</style>
+</head>
+
+
+<body>
+
+<!-- FALLING HEARTS -->
+
+<div class="hearts">
+    <div class="heart">❤️</div>
+    <div class="heart">💕</div>
+    <div class="heart">🤍</div>
+    <div class="heart">✨</div>
+    <div class="heart">💗</div>
+    <div class="heart">🤍</div>
+    <div class="heart">❤️</div>
+    <div class="heart">💕</div>
+</div>
+
+
+<!-- OPENING SCREEN -->
+
+<section class="hero">
+
+    <div class="glow one"></div>
+    <div class="glow two"></div>
+    <div class="glow three"></div>
+
+    <div class="hero-content">
+
+        <div class="line"></div>
+
+        <h1>
+            A little something for you…
+        </h1>
+
+        <div class="line"></div>
+
+        <p>
+            made with a lot of feelings ❤️
+        </p>
+
+    </div>
+
+    <div class="scroll">
+        SCROLL SLOWLY
+        <span>↓</span>
+    </div>
+
+</section>
+
+
+<!-- MAIN WEBSITE -->
+
+<main>
+
+<div class="container">
+
+
+<!-- INTRO -->
+
+<section class="intro">
+
+    <div>
+
+        <h2>
+            Hey Chiku… ❤️
+        </h2>
+
+        <p>
+            I made this little place for you.
+        </p>
+
+        <div class="divider">
+            · · ❤️ · ·
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- LETTER -->
+
+<article class="letter">
+
+    <div class="letter-heading">
+        A letter from my heart
+    </div>
+
+
+    <p class="message">
+        Tum janti ho na main apni life main kisi ko itna seriously nhi leta tha... kisi ke liye itna feel karna, kisi ko itni importance dena mere liye kabhi easy nhi tha... but pata nhi tum kab meri life main itni important ban gayi 🥺
+    </p>
+
+    <p class="message">
+        Ab sach bolu toh tumhe khone se darr lagta hai... bohot zyada. Pehle mujhe farak nhi padta tha koi rahe ya chala jaye, but tumhare case main aisa nhi hai... tumhe lose karne ka thought bhi mujhe andar se bohot hurt karta hai.
+    </p>
+
+    <p class="message">
+        Tum janti ho mere trust issues kitne hai... main easily kisi pe trust nhi karta, har chiz ko overthink karta hoon, kabhi kabhi bina reason ke bhi zyada soch leta hoon... but tumhare saath maine dheere dheere trust karna sikha hai. Ab mujhe tum par yakeen hai... sach main hai.
+    </p>
+
+    <p class="message">
+        Bas please mere is trust ko kabhi break hone mat dena 🥺 Maine bohot mushkil se kisi ko itna trust kiya hai. Main nhi chahta kabhi aisa din aaye jab mujhe lage ki tum par trust karna meri galti thi.
+    </p>
+
+    <p class="message">
+        Mujhe tumhare past se koi lena dena nhi hai. Kisi ne tumhare baare main kya kaha, kisne kya bola... mujhe honestly usse koi farak nhi padta. Mujhe bas tumhari baat par believe karna hai. Tum jaisi bhi ho, jo bhi ho, main tumhe waise hi accept karta hoon. Mujhe tumhe kisi aur ke according judge nhi karna.
+    </p>
+
+    <p class="message">
+        Aur ek baat... main ye nhi bolunga ki humare beech kabhi ladai nhi hogi. Ladai hongi, misunderstandings hongi, kabhi main tumse naraz hounga, kabhi tum mujhse naraz hogi... galti mujhse bhi hogi aur tumse bhi ho sakti hai. But main bas ye chahta hoon ki kisi bhi ladai ke baad hum ek dusre ko chhodne ke baare main na soche... baat kare, samjhe aur sort out kare. ❤️
+    </p>
+
+    <p class="message">
+        Tum mujhe kuch bhi bata sakti ho... literally kuch bhi. Jo baat tum kisi aur ko nhi bata paati, woh bhi mujhe bata sakti ho. Mere saamne comfortable rehna, apne feelings ko hide mat karna. Main tumhe judge nhi karunga. Agar tum sad ho toh mujhe batao, agar tumhe gussa hai toh mujhpe gussa karo, agar mujhse koi complaint hai toh woh bhi bolo... main sununga.
+    </p>
+
+    <p class="message">
+        Main perfect nhi hoon... mujhse bhi bohot galtiyan hongi. Kabhi main stupid behave karunga, kabhi tumhe hurt bhi kar sakta hoon bina jaan-bujhkar... but main hamesha apni galti samajhne aur sudharne ki koshish karunga. Main ye promise nhi karta ki mujhse kabhi galti nhi hogi... bas itna promise karta hoon ki tumhari feelings ko kabhi jaan-bujhkar ignore nhi karunga.
+    </p>
+
+    <p class="message">
+        Main tumhare saath bohot saari choti choti cheezein karna chahta hoon... saath ghoomna hai, masti karni hai, random photos leni hai, bina kisi reason ke hasna hai 😂❤️ ek dusre ko pareshan karna hai aur bohot saari memories banani hai.
+    </p>
+
+    <p class="message">
+        Maine tumhare saath bohot sapne dekhe hai... aur ab mann karta hai ki jo bhi sapne dekhe hai na, woh sab tumhare saath hi pura karu.
+    </p>
+
+    <p class="message">
+        Main sirf tumhara boyfriend nhi banna chahta... main tumhara best friend banna chahta hoon, tumhara comfort person banna chahta hoon... aisa insaan jiske paas tum bina soche aa sako, jiske saamne tumhe perfect banne ki zarurat na pade.
+    </p>
+
+    <p class="message">
+        Main chahta hoon ki tum mere saath apne real self reh sako... bina kisi fear ke, bina kisi hesitation ke. Tum mujhe apni khushi bhi bata sako aur apni problems bhi. Tumhe mere saamne kuch hide karne ki zarurat na lage.
+    </p>
+
+    <p class="message">
+        Aur agar kabhi life main sab kuch kharab chal raha ho, toh mere paas aa jaana... main shayad tumhari har problem solve na kar paun, but tumhare saath baith ke tumhari baat zaroor sun sakta hoon.
+    </p>
+
+    <p class="message">
+        Maine pehle kabhi kisi ko itna seriously nhi liya tha... but tum different ho. Tum woh person ho jise khone se main ab darta hoon. Aur shayad isi liye tum mere liye itni special ho. ❤️
+    </p>
+
+    <p class="message">
+        Main nhi jaanta future exactly kaisa hoga... but main itna zaroor jaanta hoon ki main tumhare saath bohot kuch jeena chahta hoon. Saath ghoomna hai, saath hasna hai, saath memories banani hai aur jo sapne humne dekhe hain unhe dheere dheere pura karna hai.
+    </p>
+
+    <p class="message">
+        Aur end main bas itna kehna hai...
+    </p>
+
+    <p class="message">
+        Mujhe nhi pata main tumhare liye kitna acha partner ban paunga. Mujhse galtiyan hongi, humare beech ladai bhi hongi, kabhi hum ek dusre ko samajh nhi payenge... but please uss waqt ek dusre se baat karna mat chhodna.
+    </p>
+
+    <p class="message">
+        Agar kabhi main galat hounga toh mujhe samjha dena... agar main tumhe hurt karunga toh mujhe bata dena... agar mujhse koi mistake hogi toh mujhe sudharne ka chance dena. Main bhi tumhare liye wahi karunga.
+    </p>
+
+    <p class="message">
+        Main chahta hoon ki hum sirf achhe time main nahi, balki difficult time main bhi ek dusre ke saath rahe. Aaj jo trust, care aur respect humare beech hai na... main chahta hoon ye sab hamesha rahe.
+    </p>
+
+    <p class="message highlight">
+        Mujhe tum perfect nahi chahiye... mujhe bas tum chahiye, exactly jaisi tum ho. ❤️
+    </p>
+
+    <p class="message">
+        Aur pata hai sabse sach baat kya hai?
+    </p>
+
+    <p class="message">
+        Main pehle kisi ko khone se nhi darta tha... but ab tumhe khone ka darr lagta hai.
+    </p>
+
+    <p class="message">
+        Shayad main har baar apni feelings ko sahi words main express na kar paun... kabhi stupid behave karunga, kabhi overthink karunga, kabhi tumhe irritate bhi karunga 😂 but jo bhi hai, jo bhi feel karta hoon... woh fake nhi hai.
+    </p>
+
+    <p class="message highlight">
+        Tum mere liye bohot important ho. ❤️
+    </p>
+
+    <p class="message">
+        Bas mera trust kabhi mat todna... aur jab bhi humare beech kuch galat ho, ek dusre se baat karna mat chhodna.
+    </p>
+
+    <p class="message highlight">
+        I love you soo much ❤️🥺
+    </p>
+
+    <p class="message">
+        Please mere saath rehna... aur mujhe bhi tumhara saath nibhaane ka mauka dete rehna. ❤️
+    </p>
+
+</article>
+
+
+<!-- END -->
+
+<section class="end">
+
+    <h2>
+        Some feelings are just too big for words.
+    </h2>
+
+    <p>
+        Thank you for every little moment,
+        every conversation,
+        every laugh,
+        and every memory.
+    </p>
+
+    <p>
+        Made with love, just for you ❤️
+    </p>
+
+    <div class="final">
+        I love you soo much. ❤️🥺
+    </div>
+
+</section>
+
+
+</div>
+</main>
+
+
+<!-- MUSIC -->
+
+<audio
+    id="music"
+    src="khwab.mp3"
+    loop
+    preload="auto">
+</audio>
+
+<button
+    class="music"
+    id="musicBtn"
+    aria-label="Music">
+    ♫
+</button>
+
+
+<script>
+
+const music = document.getElementById("music");
+const musicBtn = document.getElementById("musicBtn");
+
+music.volume = 0.55;
+
+
+/* Try automatic playback */
+
+window.addEventListener("load", function(){
+
+    setTimeout(function(){
+
+        music.play().catch(function(){
+
+            /*
+            Android/Chrome may block autoplay.
+            First touch or scroll will start it.
+            */
+
+        });
+
+    }, 500);
+
+});
+
+
+/* Start music on first interaction if autoplay was blocked */
+
+function startMusic(){
+
+    if(music.paused){
+
+        music.play().catch(function(){});
+
+    }
+
+}
+
+document.addEventListener(
+    "touchstart",
+    startMusic,
+    {once:true, passive:true}
+);
+
+document.addEventListener(
+    "scroll",
+    startMusic,
+    {once:true, passive:true}
+);
+
+
+/* Music button */
+
+musicBtn.addEventListener("click", function(){
+
+    if(music.paused){
+
+        music.play().then(function(){
+
+            musicBtn.textContent = "♫";
+
+        }).catch(function(){});
+
+    }else{
+
+        music.pause();
+
+        musicBtn.textContent = "▶";
+
+    }
+
+});
+
+</script>
+
+</body>
+  </html>
